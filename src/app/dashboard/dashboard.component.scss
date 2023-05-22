@@ -1,0 +1,49 @@
+
+.dashboard-menu {
+    background-color: #232f3e;
+    padding: 20px 0;
+  }
+  
+  .menu-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-item {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .menu-item:hover {
+    color: #e2e2e2;
+  }
+  
+  .menu-item.active {
+    color: #f90;
+  }
+  
+
+  .dashboard-content {
+    padding: 20px;
+  }
+
+  .chart-container{
+    margin-top: 2rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    .chart-container {
+      width: 100%;
+    }
+    .menu-item {
+      font-size: 15px;
+    }
+  }
+  

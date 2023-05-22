@@ -1,0 +1,82 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$button-border-radius: 10px;
+$button-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+$input-border: 2px solid #ccc;
+$input-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+.base {
+  background: $primary-color;
+  margin-top: 5vh;
+  border: 3px solid black;
+  width: 100%;
+}
+
+.maindisplay {
+  background: lightgrey;
+  height: 25vh;
+  padding: 3% 2%;
+  font-size: 4rem;
+  text-align: right;
+  font-family: Courier, monospace;
+  overflow: auto;
+}
+
+.input-display {
+  font-size: 2.5rem;
+  width: 100%;
+  padding: 25px;
+  text-align: right;
+  direction: rtl;
+  border: $input-border;
+  box-shadow: $input-box-shadow;
+  border-radius: $button-border-radius;
+}
+
+.keypad {
+  height: calc(200% / 3);
+}
+
+.keys {
+  margin: 0;
+  height: 20%;
+  background: $secondary-color;
+  color: white;
+  padding: 5%;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: $button-border-radius;
+  box-shadow: $button-box-shadow;
+}
+
+.keys:hover {
+  opacity: 1;
+}
+
+.ackey {
+  color: white;
+  background: $primary-color;
+}
+
+.equalkey {
+  color: white;
+  background-color: $primary-color;
+}
+
+.numkey {
+  color: white;
+  background-color: $secondary-color;
+}
+
+.opkey {
+  color: white;
+  background-color: $primary-color;
+}
+
+.error-message {
+  color: red;
+  font-size: 2rem;
+  margin-right: 10px;
+}

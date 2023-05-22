@@ -1,0 +1,37 @@
+
+.table-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.p-table {
+  td {
+    text-align: center;
+  }
+
+  .parent-header-row {
+    display: block;
+    padding: 10px;
+  }
+
+  .parent-row {
+    background-color: grey;
+    display: table-row;
+  }
+
+  .child-header-row {
+    display: block;
+    padding: 10px;
+  }
+
+  .child-row {
+    display: table-row;
+  }
+
+  td {
+    text-align: center;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,82 @@
+<div>
+  <h2 class="table-title">Candidate Discoveries</h2>
+
+  <p-table [value]="dataService.clients" dataKey="id" [tableStyle]="{ 'min-width': '60rem' }">
+    <ng-template pTemplate="header">
+      <tr class="parent-header-row">
+        <th style="width: 5rem"></th>
+        <th pSortableColumn="clientName">
+          Name
+          <p-sortIcon field="clientName"></p-sortIcon>
+        </th>
+        <th pSortableColumn="role">
+          Role
+          <p-sortIcon field="role"></p-sortIcon>
+        </th>
+        <th pSortableColumn="maxCTC">
+          Max CTC
+          <p-sortIcon field="maxCTC"></p-sortIcon>
+        </th>
+        <th pSortableColumn="minCTC">
+          Min CTC
+          <p-sortIcon field="minCTC"></p-sortIcon>
+        </th>
+        <th pSortableColumn="noOfPositions">
+          No of Positions
+          <p-sortIcon field="noOfPositions"></p-sortIcon>
+        </th>
+        <th pSortableColumn="status">
+          Status
+          <p-sortIcon field="status"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-client let-expanded="expanded">
+      <tr class="parent-row">
+        <td>
+          <button type="button" pButton pRipple [pRowToggler]="client"
+            class="p-button-text p-button-rounded p-button-plain"
+            [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+        </td>
+        <td>{{ client.clientName }}</td>
+        <td>{{ client.role }}</td>
+        <td>{{ client.maxCTC | currency: 'USD' }}</td>
+        <td>{{ client.minCTC | currency: 'USD' }}</td>
+        <td>{{ client.noOfPositions }}</td>
+        <td>
+          <p-tag [value]="client.status" [severity]="getStatusSeverity(client.status)"></p-tag>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-client>
+      <tr>
+        <td colspan="7">
+          <div class="p-3">
+            <p-table [value]="dataService.candidateDiscoveries" dataKey="id">
+              <ng-template pTemplate="header">
+                <tr class="child-header-row">
+                  <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
+                  <th>Candidate Name</th>
+                  <th>Status (Selection Ongoing/Dropped/Selected/Joined)</th>
+                  <th pSortableColumn="offeredCTC">Offered CTC <p-sortIcon field="offeredCTC"></p-sortIcon></th>
+                  <th pSortableColumn="discoveredOn">Discovered On(Date) <p-sortIcon field="discoveredOn"></p-sortIcon></th>
+                  <th>Discovered By (Name of member)</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-candidateDiscovery>
+                <tr *ngIf="candidateDiscovery.requirementId === client.id" class="child-row">
+                  <td>{{ candidateDiscovery.id }}</td>
+                  <td>{{ candidateDiscovery.candidateName }}</td>
+                  <td>{{ candidateDiscovery.status }}</td>
+                  <td>{{ candidateDiscovery.offeredCTC | currency: 'USD' }}</td>
+                  <td>{{ candidateDiscovery.discoveredOn }}</td>
+                  <td>{{ candidateDiscovery.discoveredBy }}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
